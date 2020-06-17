@@ -9,7 +9,7 @@ Laravel Chained Jobs Shared Data
 [![Monthly Downloads](https://poser.pugx.org/renoki-co/laravel-chained-jobs-shared-data/d/monthly)](https://packagist.org/packages/renoki-co/laravel-chained-jobs-shared-data)
 [![License](https://poser.pugx.org/renoki-co/laravel-chained-jobs-shared-data/license)](https://packagist.org/packages/renoki-co/laravel-chained-jobs-shared-data)
 
-Chained Jobs Shared Data is a package that helps you distribute a data (usually an array) between chained jobs.
+Chained Jobs Shared Data is a package that helps you share some data (usually an array) between chained jobs.
 
 ## 🚀 Installation
 
