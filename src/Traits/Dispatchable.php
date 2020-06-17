@@ -16,6 +16,13 @@ trait Dispatchable
      */
     public $sharedData;
 
+    /**
+     * Set the jobs that should run if this job is successful.
+     *
+     * @param  array  $chain
+     * @param  mixed  $sharedData
+     * @return \Illuminate\Foundation\Bus\PendingChain
+     */
     public static function withChain($chain, $sharedData = null)
     {
         return new PendingChain(static::class, $chain, $sharedData);
