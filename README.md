@@ -37,6 +37,57 @@ class MyJob implements ShouldQueue
 }
 ```
 
+## Use Case
+
+The main use case is to share some data between chained jobs, while being able to modify it and be retrieved in the next jobs with the previous modifications.
+
+```php
+CreateUser::withChain([
+    new CreateApiKey,
+    new MakeTestApiCall,
+])->dispatch();
+```
+
+The `CreateApiKey` and `MakeTestApiCall` are the jobs that depend by the `CreateUser` at glance.
+
+Without using this package's traits, the only workaround would be to trigger the ```CreateApiKey``` in the `CreateUser` job, then trigger the next one, and the next one, etc. and you will end up bad code to manage and troubleshoot.
+
+If all job classes use the previous mentioned traits, having some shared data is going to ease the job:
+
+```php
+// CreateUser.php
+
+public function handle()
+{
+    $user = $this->createUser();
+
+    $this->sharedData['user'] = $user;
+}
+```
+
+```php
+// CreateApiKey.php
+
+public function handle()
+{
+    $apiKey = $this->createApiKeyForUser($this->sharedData['user']);
+
+    $this->sharedData['api_key'] = $apiKey;
+}
+```
+
+```php
+// MakeTestApiCall.php
+
+public function handle()
+{
+    $this->makeApiCall(
+        $this->sharedData['user'],
+        $this->sharedData['api_key'],
+    );
+}
+```
+
 ## 🐛 Testing
 
 ``` bash
