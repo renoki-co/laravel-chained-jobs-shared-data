@@ -1,0 +1,46 @@
+{
+    "name": "renoki-co/laravel-chained-jobs-shared-data",
+    "description": "Share data between chained jobs in Laravel.",
+    "keywords": ["laravel", "php", "jobs", "queue", "shared"],
+    "license": "MIT",
+    "homepage": "https://github.com/renoki-co/laravel-chained-jobs-shared-data",
+    "authors": [
+        {
+            "name": "Alex Renoki",
+            "homepage": "https://github.com/rennokki",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "laravel/framework": "^6.2|^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "RenokiCo\\ChainedJobsSharedData\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "RenokiCo\\ChainedJobsSharedData\\Test\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^5.0",
+        "orchestra/database": "^5.0"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "RenokiCo\\ChainedJobsSharedData\\ChainedJobsSharedDataServiceProvider"
+            ]
+        }
+    }
+}
