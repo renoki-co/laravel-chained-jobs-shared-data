@@ -2,7 +2,7 @@
     "name": "renoki-co/laravel-chained-jobs-shared-data",
     "description": "Share data between chained jobs in Laravel.",
     "keywords": ["laravel", "php", "jobs", "queue", "shared"],
-    "license": "MIT",
+    "license": "Apache-2.0",
     "homepage": "https://github.com/renoki-co/laravel-chained-jobs-shared-data",
     "authors": [
         {
